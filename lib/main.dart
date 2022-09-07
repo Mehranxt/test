@@ -11,9 +11,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Learning',
       theme: ThemeData(
-        primarySwatch: Colors.green,
+        primarySwatch: Colors.blue,
       ),
       home: MyHomePage(),
     );
@@ -62,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Text("Close Bottom Sheet"),
             style: ElevatedButton.styleFrom(
               onPrimary: Colors.white,
-              primary: Colors.green,
+              primary: Colors.blue,
             ),
             onPressed: () {
               Navigator.of(context).pop();
