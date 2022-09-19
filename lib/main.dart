@@ -1,76 +1,36 @@
-import 'dart:io';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Learning',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: (Colors.blueGrey),
+          title: Text('My Room'),
+          centerTitle: true,
+          elevation: 5,
+        ),
+        body: Radio(value: true, groupValue: true, onChanged: ((value) {})),
+        floatingActionButton: FloatingActionButton(
+            onPressed: () {},
+            backgroundColor: Colors.greenAccent,
+            child: Icon(Icons.airplane_ticket_outlined)),
+        drawer: SafeArea(
+            child: Drawer(
+                child: ListTile(
+                    title: Text('mehran alaei'),
+                    subtitle: Text('flutter developer'),
+                    onTap: () {},
+                    leading: Icon(Icons.ads_click_outlined)))),
       ),
-      home: MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  @override
-  _MyHomePageState createState() {
-    return _MyHomePageState();
-  }
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Flutter Bottom Sheet"),
-      ),
-      body: Center(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          ElevatedButton(
-            onPressed: () {
-              _showModalBottomSheet();
-            },
-            child: Text("Show Bottom Sheet"),
-          )
-        ],
-      )),
-    );
-  }
-
-  _showModalBottomSheet() {
-    showModalBottomSheet(
-      context: context,
-      builder: (context) {
-        return Container(
-          height: 200,
-          width: double.infinity,
-          color: Colors.grey.shade200,
-          alignment: Alignment.center,
-          child: ElevatedButton(
-            child: Text("Close Bottom Sheet"),
-            style: ElevatedButton.styleFrom(
-              onPrimary: Colors.white,
-              primary: Colors.blue,
-            ),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
-        );
-      },
     );
   }
 }
